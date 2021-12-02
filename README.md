@@ -59,7 +59,7 @@ I used the following sources while writing this app:
 3. Backend: express, mongoose, dotenv, mocha
 > I used mongoose rather than the normal MongoDB drivers because it was a little easier to set up and so I didn't have to worry about setting up and closing the connection to MongoDB. I did wrote only one test for the backend because I had already spent about 6+ hours getting everything else done, and I did not want to exceed the time limit.
 
-## Alternative solutions
+## Comments
 
 The frontend could use a little more refinement and to break things down into components, or a different framework could be used. But, in the end, the frontend is somewhat unimportant. The decision making happens mostly on the backend.
 
