@@ -1,0 +1,17 @@
+.result {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--black);
+}
+
+.success {
+  background-color: var(--success);
+}
+
+.success::after {
+  content: none;
+}
+
+.error {
+  background-color: var(--error);
+}

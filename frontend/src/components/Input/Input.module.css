@@ -1,0 +1,7 @@
+.input {
+  margin: 0 1rem;
+}
+
+.input[type=text] {
+  font-size: 2rem;
+}

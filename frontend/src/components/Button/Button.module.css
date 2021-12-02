@@ -1,0 +1,25 @@
+.button {
+  border: 1px solid var(--black);
+  color: var(--black);
+  padding: 1rem;
+  background-color: var(--white);
+  transition: all 0.4s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 2px 0px rgba(0, 0, 0, 0.4);
+}
+
+.button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.4);
+}
+
+.button:disabled {
+  transform: translateY(0px);
+  box-shadow: none;
+  background-color: var(--gray);
+
+  cursor: not-allowed;
+}

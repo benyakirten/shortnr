@@ -1,0 +1,15 @@
+{
+  "name": "shortnr",
+  "version": "1.0.0",
+  "description": "A simple service to shorten URLs.",
+  "scripts": {
+    "start": "concurrently \"cd backend && npm start\" \"cd frontend && npm run start\"",
+    "seed": "concurrently \"cd backend && npm run seed && npm start\" \"cd frontend && npm run start\"",
+    "reset": "concurrently \"cd backend && npm run reset && npm start\" \"cd frontend && npm run start\""
+  },
+  "author": "Benyakir Horowitz",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^6.4.0"
+  }
+}
