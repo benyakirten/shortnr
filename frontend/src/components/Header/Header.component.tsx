@@ -5,12 +5,12 @@ import Button from '../Button/Button.component';
 import Input from '../Input/Input.component';
 
 import useValidity from '../../hooks/useValidation';
-import { exactLength } from '../../lib/validation';
+import { validateLength } from '../../lib/validation';
 
 import styles from './Header.module.css';
 
-const Header = () => {
-  const [link, setLink, valid] = useValidity([exactLength()]);
+const Header: React.FC = () => {
+  const [link, setLink, valid] = useValidity([validateLength()]);
   const navigate = useNavigate();
   const location = useLocation();
   const handleClick = () => {

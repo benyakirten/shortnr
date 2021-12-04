@@ -9,7 +9,7 @@ describe('Form.component.jsx', () => {
   afterEach(cleanup);
   
   it('should render properly', () => {
-    expect(() => render(<Form />)).not.toThrow();
+    expect(() => render(<Form onSubmit={() => {}} />)).not.toThrow();
   });
 
   it('should call the preventDefault method on the event object', () => {
@@ -17,7 +17,7 @@ describe('Form.component.jsx', () => {
     expect(submitSpy).toHaveBeenCalledTimes(0);
 
     const article = screen.getByRole('article');
-    const form = article.parentElement;
+    const form = article.parentElement!;
     const event = fireEvent.submit(form);
     
     expect(submitSpy).toHaveBeenCalledTimes(1);

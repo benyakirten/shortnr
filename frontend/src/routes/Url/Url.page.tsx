@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { exactLength, validateLink } from '../../lib/validation';
+import { exactLength, validLink } from '../../lib/validation';
 
 import Loading from '../../components/Loading/Loading.component';
 
 import styles from './Url.module.css'
 
-const Url = () => {
+const Url: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
@@ -25,7 +25,7 @@ const Url = () => {
       const data = await res.json();
       const destination = data.origin;
 
-      if (!validateLink(destination)) {
+      if (!validLink(destination)) {
         return false;
       }
 

@@ -2,7 +2,11 @@ import React from 'react';
 
 import styles from './Loading.module.css';
 
-const Loading = ({ size = '2rem' }) => {
+interface LoadingProps {
+  size?: string;
+}
+
+const Loading: React.FC<LoadingProps> = ({ size = '2rem' }) => {
   return (
     <div
       className={`${styles.loading} rotate`}

@@ -9,7 +9,7 @@ describe('Input.component.jsx', () => {
   afterEach(cleanup);
 
   it('should render correctly', () => {
-    expect(() => render(<Input />)).not.toThrow();
+    expect(() => render(<Input onChange={mockTextChange} />)).not.toThrow();
   });
 
   it('should call the onChange function with the new text rather than the event', async () => {

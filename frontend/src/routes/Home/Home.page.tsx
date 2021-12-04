@@ -8,21 +8,21 @@ import Button from '../../components/Button/Button.component';
 
 import styles from './Home.module.css';
 
-import { validateLink } from '../../lib/validation';
+import { validateLink, validLink } from '../../lib/validation';
 import useValidity from '../../hooks/useValidation';
 
-const Home = () => {
+const Home: React.FC = () => {
   const [search, setSearch, valid] = useValidity([validateLink()]);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState(null);
-  const [err, setError] = useState(null);
+  const [result, setResult] = useState<string | null>(null);
+  const [err, setError] = useState<string | null>(null);
 
   const handleSubmit = async () => {
     if (loading) return;
     setLoading(true);
     setError(null);
     setSearch('');
-    if (!validateLink(search)) {
+    if (!validLink(search)) {
       setLoading(false);
       return setError('URL format incorrect')
     }
@@ -36,10 +36,10 @@ const Home = () => {
         throw new Error('Unable to generate shortened URL');
       }
 
-      const val = await res.json();
+      const val: UrlResponse = await res.json();
       setResult(val.short);
     }
-    catch (e) {
+    catch (e: any) {
       setError(`Error occurred: ${e.message}`);
     } finally {
       setLoading(false);
@@ -59,7 +59,7 @@ const Home = () => {
         <Loading />
       )}
       {!err && !loading && result && (
-        <Link className={`${styles.result} ${styles.success}`} to={`/${result}`}>{process.env.DOMAIN || 'http://localhost:3000'}/{result}</Link>
+        <Link className={`${styles.result} ${styles.success}`} to={`/${result}`}>http://localhost:3000/{result}</Link>
       )}
     </div>
   );

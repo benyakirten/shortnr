@@ -1,4 +1,4 @@
-import { validateLink, exactLength, validate } from './validation'
+import { validateLink, validate, validateLength } from './validation'
 
 describe('validation.js', () => {
   describe('validateLink', () => {
@@ -31,7 +31,7 @@ describe('validation.js', () => {
     });
   });
 
-  describe('exactLength', () => {
+  describe('validateLength', () => {
     const validInputs = {
       'abcde': 5,
       ' abcde': 5,
@@ -49,25 +49,25 @@ describe('validation.js', () => {
     }
     it('should return true for valid inputs', () => {
       Object.entries(validInputs).forEach(([key, val]) => {
-        expect(exactLength(key)(val)).toBe(true);
+        expect(validateLength(val)(key)).toBe(true);
       });
     });
 
     it('should return false for invalid inputs', () => {
       Object.entries(invalidInputs).forEach(([key, val]) => {
-        expect(exactLength(key)(val)).toBe(false);
+        expect(validateLength(val)(key)).toBe(false);
       });
     })
   });
 
   describe('validate', () => {
     const validInputs = {
-      'abcde': exactLength(),
+      'abcde': validateLength(),
       'https://www.google.com': validateLink(),
     };
 
     const invalidInputs = {
-      'abcde f': exactLength(),
+      'abcde f': validateLength(),
       'htts://www.google.com': validateLink(),
     }
 

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { Routes, Route } from 'react-router-dom';
 
 import Home from './routes/Home/Home.page'
@@ -6,7 +8,7 @@ import Header from './components/Header/Header.component';
 
 import './App.css';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
       <Header />
@@ -15,7 +17,7 @@ const App = () => {
           Shortnr
         </h1>
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/*" element={<Url />} />
         </Routes>
       </main>

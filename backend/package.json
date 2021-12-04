@@ -5,10 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon src/app.ts",
-    "build": "tsc",
     "seed": "ts-node src/seed.ts",
     "reset": "ts-node src/reset.ts",
-    "test": "mocha --require ts-node/register src/test/**/*.spec.ts --exit"
+    "test": "mocha --require ts-node/register src/test/**/*.spec.ts --exit",
+    "build": "tsc",
+    "serve": "node dist/app.js"
   },
   "author": "",
   "license": "MIT",
