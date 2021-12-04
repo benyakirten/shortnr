@@ -1,6 +1,8 @@
-import { validateLink, exactLength, validate } from './validation'
+import assert from 'assert';
 
-describe('validation.js', () => {
+import { validateLink, validateLength } from '../../lib/validation';
+
+describe('validation.ts', () => {
   describe('validateLink', () => {
     const validLinks = [
       'https://www.gatherly.io',
@@ -16,22 +18,20 @@ describe('validation.js', () => {
       'htt:/www.gatherly.io/'
     ]
 
-    const curriedValidate = validateLink();
-
     it('should return true for valid inputs', () => {
       for (let link of validLinks) {
-        expect(curriedValidate(link)).toBe(true);
+        assert.equal(validateLink(link), true);
       }
     });
 
     it('should return false for invalid inputs', () => {
       for (let link of invalidLinks) {
-        expect(curriedValidate(link)).toBe(false);
+        assert.equal(validateLink(link), false);
       }
     });
   });
 
-  describe('exactLength', () => {
+  describe('validateLength', () => {
     const validInputs = {
       'abcde': 5,
       ' abcde': 5,
@@ -47,39 +47,16 @@ describe('validation.js', () => {
       ' abc': 4,
       'a b c': 5
     }
+
     it('should return true for valid inputs', () => {
       Object.entries(validInputs).forEach(([key, val]) => {
-        expect(exactLength(key)(val)).toBe(true);
+        assert.equal(validateLength(key, val), true);
       });
     });
 
     it('should return false for invalid inputs', () => {
       Object.entries(invalidInputs).forEach(([key, val]) => {
-        expect(exactLength(key)(val)).toBe(false);
-      });
-    })
-  });
-
-  describe('validate', () => {
-    const validInputs = {
-      'abcde': exactLength(),
-      'https://www.google.com': validateLink(),
-    };
-
-    const invalidInputs = {
-      'abcde f': exactLength(),
-      'htts://www.google.com': validateLink(),
-    }
-
-    it('should return true for inputs that pass their validity test', () => {
-      Object.entries(validInputs).forEach(([key, val]) => {
-        expect(validate(key, [val])).toBe(true);
-      });
-    });
-    
-    it('should return false for inputs that fail their validity test', () => {
-      Object.entries(invalidInputs).forEach(([key, val]) => {
-        expect(validate(key, [val])).toBe(false);
+        assert.equal(validateLength(key, val), false);
       });
     })
   });

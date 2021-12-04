@@ -4,14 +4,15 @@ import { Link } from 'react-router-dom';
 import Input from '../../components/Input/Input.component';
 import Form from '../../components/Form/Form.component';
 import Loading from '../../components/Loading/Loading.component';
+import Button from '../../components/Button/Button.component';
 
 import styles from './Home.module.css';
-import Button from '../../components/Button/Button.component';
+
 import { validateLink } from '../../lib/validation';
-import useValidity from '../../hook/useValidation';
+import useValidity from '../../hooks/useValidation';
 
 const Home = () => {
-  const [search, setSearch, valid] = useValidity([validateLink]);
+  const [search, setSearch, valid] = useValidity([validateLink()]);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
   const [err, setError] = useState(null);

@@ -1,6 +1,6 @@
-const Url = require('../models/url');
+import Url, { UrlModel } from '../models/url';
 
-function generateRandomString(length = 5) {
+export function generateRandomString(length = 5) {
   const allLetters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const allLettersLength = allLetters.length;
@@ -12,7 +12,7 @@ function generateRandomString(length = 5) {
   return final;
 }
 
-async function generateShortUrl(url) {
+export async function generateShortUrl(url: UrlModel) {
   const id = url._id.toString();
   let short = id.slice(-5);
   let res = await Url.findOne({ short });
@@ -32,8 +32,3 @@ async function generateShortUrl(url) {
   if (res) throw new Error('Unable to generate shortened url');
   return short;
 }
-
-module.exports = {
-  generateRandomString,
-  generateShortUrl
-};
