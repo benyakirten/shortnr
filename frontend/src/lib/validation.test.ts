@@ -3,7 +3,7 @@ import { validateLink, validate, validateLength } from './validation'
 describe('validation.js', () => {
   describe('validateLink', () => {
     const validLinks = [
-      'https://www.gatherly.io',
+      'https://www.youtube.com',
       'https://www.google.com',
       'https://www.npmjs.com',
       'https://www.python.org',
@@ -13,7 +13,7 @@ describe('validation.js', () => {
     const invalidLinks = [
       'A',
       '!!!!',
-      'htt:/www.gatherly.io/'
+      'htt:/www.youtube.com/'
     ]
 
     const curriedValidate = validateLink();

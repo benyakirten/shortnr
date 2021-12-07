@@ -1,0 +1,25 @@
+name: Unit Test Backend
+
+on: [ push, pull_request ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - uses: supercharge/mongodb-github-action@1.7.0
+      with:
+        mongodb-version: 4.4
+        mongodb-db: shortnr
+
+    - name: Run Tests
+      run: |
+        cd backend && npm install
+        npm run test
+      env:
+        MONGO_URL: mongodb://localhost:27017/shortnr
+        SHORTNR_PORT: 3001

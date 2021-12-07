@@ -41,6 +41,7 @@ describe('shorten.js', () => {
       assert.equal(res, '01234');
     });
 
+    // The following tests have been commented because, even though 
     it('should attempt to generate the short url moving back from the end of the input id if the id is already taken', async () => {
       const originalId = '12e4567a901bcde678901234';
       let id = originalId;
@@ -79,6 +80,6 @@ describe('shorten.js', () => {
       for (let randomString of randomlyGeneratedList) {
         assert.equal(originalId.includes(randomString), false);
       }
-    })
+    });
   });
 });
