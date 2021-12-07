@@ -1,3 +1,6 @@
+[![Unit Test Frontend](https://github.com/benyakirten/shortnr/actions/workflows/test_frontend.yml/badge.svg)](https://github.com/benyakirten/shortnr/actions/workflows/test_frontend.yml)
+[![Unit Test Backend](https://github.com/benyakirten/shortnr/actions/workflows/test_backend.yml/badge.svg)](https://github.com/benyakirten/shortnr/actions/workflows/test_backend.yml)
+
 # Table of Contents
 1. [The Project](#the-project)
 2. [Tech Stack and Commands](#tech-stack)
